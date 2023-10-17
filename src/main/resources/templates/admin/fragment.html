@@ -5,7 +5,9 @@
     <title>Admin panel</title>
     <link rel="stylesheet" href="/css/base.css"/>
     <link rel="stylesheet" href="/css/admin-template.css"/>
+    <link rel="stylesheet" href="/css/utility.css"/>
     <script src="/js/admin-template.js" defer></script>
+    <script src="/js/table.js" defer></script>
 </head>
 <body>
 <header th:fragment="header">
@@ -15,10 +17,10 @@
 <aside th:fragment="sidebar">
     <div class="menu-container">
         <div class="top-menu">
-            <div class="menu"><a href="home">📈 Dashboard</a></div>
-            <div class="menu"><a href="#">💼 Product</a></div>
-            <div class="menu"><a href="#">🛍️ Variant</a></div>
-            <div class="menu"><a href="#">🪙 Stock</a></div>
+            <div class="menu"><a href="/admin/home">📈 Dashboard</a></div>
+            <div class="menu"><a href="/admin/product">💼 Product</a></div>
+            <div class="menu"><a href="/admin/variant">🛍️ Variant</a></div>
+            <div class="menu"><a href="/admin/stock">🪙 Stock</a></div>
         </div>
         <div class="bottom-menu">
             <div class="menu"><a href="#">⬅️ Logout</a></div>

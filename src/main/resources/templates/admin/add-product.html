@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{admin/fragment :: defaultHead}"></head>
+  <body>
+    <link rel="stylesheet" href="/css/add-form.css"/>
+    <header th:replace="~{admin/fragment :: header}"></header>
+
+    <main>
+      <aside th:replace="~{admin/fragment :: sidebar}"></aside>
+      <section>
+        <div class="main-content">
+          <h2>Add Product</h2>
+          <div class="form-container">
+            <form action="#" method="post">
+              <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Product Type</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Brand</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="btn-group">
+                <input type="submit">
+                <a href="/admin/product">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

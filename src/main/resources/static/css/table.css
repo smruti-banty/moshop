@@ -1,0 +1,158 @@
+.main-content .table-header {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+.main-content .table-header form {
+    border: 1px solid #ccc;
+    border-bottom: none;
+    display: grid;
+    grid-template-columns: 97% 3%;
+}
+
+.main-content .table-header form input{
+    display: block;
+    border: 0;
+    outline: 0;
+}
+
+.main-content .table-header form input[type="text"] {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.main-content .table-header form input[type="submit"] {
+    cursor: pointer;
+}
+
+.main-content .table-header .link-container {
+    position: relative;
+    background-color: black;
+    text-align: center;
+}
+
+.main-content .table-header .link-container a {
+    display: block;
+    position: absolute;
+    inset: 0;
+    line-height: 2.5rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main-content table {
+    width: 100%;
+}
+
+.main-content table,tbody,td,th,thead,tr{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: var(--primary-space);
+    text-align: center;
+}
+
+.main-content table thead {
+    text-transform: capitalize;
+}
+.description-row {
+    transition: 0.5s;
+}
+
+.main-content table .description {
+    position: relative;
+    text-align: left;
+}
+
+.main-content table .description .close-description {
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
+    rotate: 90deg;
+    font-weight: bolder;
+}
+
+
+.main-content table a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-inline: 5px;
+}
+
+.main-content table img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.main-content .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--primary-space);
+}
+
+.main-content .pagination div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content .pagination .page-size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--primary-space);
+}
+
+.main-content .pagination .page-size p {
+    margin-right: 5px ;
+}
+
+.main-content .pagination .page-naviagte {
+    gap: var(--primary-space);
+}
+
+.main-content .pagination .page-naviagte a {
+    text-decoration: none;
+    color: royalblue;
+}
+
+.main-content .pagination .page-naviagte span {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
+
+.img-box {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.img-box .img-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    animation: fade-in 0.5s;
+}
+
+.img-box .close-img {
+    position: absolute;
+    right: var(--primary-space);
+    top: var(--primary-space);
+}
+
+.img-box .close-img .cross {
+    color: #ffffff74;
+    font-weight: bolder;
+    font-size: 5rem;
+}
+
+@keyframes fade-in {
+    form {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

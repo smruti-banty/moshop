@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{admin/fragment :: defaultHead}"></head>
+  <body>
+    <header th:replace="~{admin/fragment :: header}"></header>
+    <main>
+      <link rel="stylesheet" href="/css/table.css" />
+
+      <aside th:replace="~{admin/fragment :: sidebar}"></aside>
+      <section>
+        <div class="main-content">
+          <h2>All variants</h2>
+          <div class="table-header">
+            <div class="form-container">
+              <form>
+                <input type="text" placeholder="Search variant..." />
+                <input type="submit" value="🔍" />
+              </form>
+            </div>
+            <div class="link-container">
+              <a href="/admin/variant/add" class="add-btn">Add variant</a>
+            </div>
+          </div>
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Variant Name</th>
+                  <th>Product Name</th>
+                  <th>Variant type</th>
+                  <th>Variant price</th>
+                  <th>Image</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="#">🖋️</a>
+                    <a href="#">🗑️</a>
+                    <button title="description" class="btn show-description">
+                      👁️
+                    </button>
+                  </td>
+                  <td>Iphone 12</td>
+                  <td>Phone</td>
+                  <td>Apple</td>
+                  <td>Iphone 12</td>
+                  <td>
+                    <img
+                      loading="lazy"
+                      role="button"
+                      src="https://picsum.photos/id/1020/600/400"
+                      alt="img"
+                      title="click me"
+                    />
+                  </td>
+                </tr>
+                <tr class="bg-gray description-row d-none">
+                  <td colspan="6" class="description">
+                    <h4 class="mb-1">Description</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Reiciendis maiores numquam facere dignissimos officia
+                      excepturi, quasi assumenda totam molestias earum tempora
+                      corrupti aperiam ullam esse cupiditate sit consequatur
+                      quae mollitia. Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Ratione, vitae aliquam ea optio quos
+                      dignissimos voluptatem culpa in dolore, rerum qui unde
+                      eaque doloribus accusamus facilis voluptates ut eos earum.
+                    </p>
+                    <div title="close" class="close-description">
+                      <button class="btn">◀</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <a href="#">🖋️</a>
+                    <a href="#">🗑️</a>
+                    <button title="description" class="btn show-description">
+                      👁️
+                    </button>
+                  </td>
+                  <td>Iphone 13</td>
+                  <td>Phone</td>
+                  <td>Apple</td>
+                  <td>Iphone 12</td>
+                  <td>
+                    <img
+                      loading="lazy"
+                      role="button"
+                      src="https://picsum.photos/id/237/600/400"
+                      alt="img"
+                      title="click me"
+                    />
+                  </td>
+                </tr>
+                <tr class="bg-gray description-row d-none">
+                  <td colspan="6" class="description">
+                    <h4 class="mb-1">Description</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Reiciendis maiores numquam facere dignissimos officia
+                      excepturi, quasi assumenda totam molestias earum tempora
+                      corrupti aperiam ullam esse cupiditate sit consequatur
+                      quae mollitia. Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Ratione, vitae aliquam ea optio quos
+                      dignissimos voluptatem culpa in dolore, rerum qui unde
+                      eaque doloribus accusamus facilis voluptates ut eos earum.
+                    </p>
+                    <div title="close" class="close-description">
+                      <button class="btn">◀</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <a href="#">🖋️</a>
+                    <a href="#">🗑️</a>
+                    <button title="description" class="btn show-description">
+                      👁️
+                    </button>
+                  </td>
+                  <td>Iphone 13</td>
+                  <td>Phone</td>
+                  <td>Apple</td>
+                  <td>Iphone 12</td>
+                  <td>
+                    <img
+                      loading="lazy"
+                      role="button"
+                      src="https://picsum.photos/id/211/600/400"
+                      alt="img"
+                      title="click me"
+                    />
+                  </td>
+                </tr>
+
+                <tr class="bg-gray description-row d-none">
+                  <td colspan="6" class="description">
+                    <h4 class="mb-1">Description</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Reiciendis maiores numquam facere dignissimos officia
+                      excepturi, quasi assumenda totam molestias earum tempora
+                      corrupti aperiam ullam esse cupiditate sit consequatur
+                      quae mollitia. Lorem ipsum dolor sit amet consectetur
+                      adipisicing elit. Ratione, vitae aliquam ea optio quos
+                      dignissimos voluptatem culpa in dolore, rerum qui unde
+                      eaque doloribus accusamus facilis voluptates ut eos earum.
+                    </p>
+                    <div title="close" class="close-description">
+                      <button class="btn">◀</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination">
+              <div class="page-size">
+                <div>
+                  <p>Row per page</p>
+                  <select name="size" id="page-size">
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                </div>
+                <p>1-10 of 500 rows</p>
+              </div>
+              <div class="page-naviagte">
+                <a href="#">◀ Previous</a>
+                <p><span>1</span> of 10</p>
+                <a href="#">Next ▶</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="img-box d-none">
+      <div class="img-container">
+        <div>
+          <img
+            loading="lazy"
+            role="button"
+            src="https://picsum.photos/id/1025/600/400"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="close-img">
+        <button class="btn cross">X</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -9,6 +9,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
     @GetMapping("/home")
     public String home() {
-        return "admin/home";
+        return "admin/dashboard";
+    }
+
+    @GetMapping("/product")
+    public String getProducts() {
+        return "admin/products";
+    }
+
+    @GetMapping("/product/add")
+    public String addProduct() {
+        return "admin/add-product";
+    }
+
+    @GetMapping("/variant")
+    public String getVariant() {
+        return "admin/variants";
+    }
+
+    @GetMapping("/variant/add")
+    public String addVariant() {
+        return "admin/add-variant";
+    }
+
+    @GetMapping("/stock")
+    public String getStock() {
+        return "admin/stocks";
+    }
+
+    @GetMapping("/stock/add")
+    public String addStock() {
+        return "admin/add-stock";
     }
 }

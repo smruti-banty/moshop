@@ -1,0 +1,33 @@
+section {
+  padding: 2rem;
+  width: 100%;
+}
+.main-content {
+  background-color: var(--primary-color);
+  padding: var(--primary-space);
+  box-shadow: var(--primary-shadow);
+  padding: 1rem;
+}
+
+.main-content h2 {
+  text-align: center;
+}
+
+.bg-gray {
+    background-color: #f2f2f2;
+}
+
+.mb-1 {
+  margin-bottom: var(--primary-space);
+}
+
+.btn {
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.d-none {
+  display: none;
+}

@@ -1,0 +1,21 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+}
+.card {
+    background-color: var(--primary-color);
+    padding: var(--primary-space);
+    box-shadow: var(--primary-shadow);
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card p {
+    font-size: 1.2rem;
+}
+.card .logo {
+    font-size: 2rem;
+}

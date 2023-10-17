@@ -1,10 +1,10 @@
-const path = getPath(location.href);
+const path = location.href;
 const links = document.querySelectorAll('.menu a');
 
 links.forEach(link => {
    const linkPath = getPath(link.href);
 
-   if (linkPath === path) {
+   if (path.includes(linkPath)) {
         link.closest('.menu').classList.add('active-link');
    }
 });

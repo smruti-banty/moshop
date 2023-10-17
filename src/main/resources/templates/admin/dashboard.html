@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{admin/fragment :: defaultHead}"></head>
+  <body>
+    <header th:replace="~{admin/fragment :: header}"></header>
+    <main>
+      <link rel="stylesheet" href="/css/dashboard.css" />
+      <aside th:replace="~{admin/fragment :: sidebar}"></aside>
+      <section>
+        <div class="card-container">
+          <div class="card">
+            <div class="details">
+              <p>Order</p>
+              <p>10</p>
+            </div>
+            <div class="logo">💰</div>
+          </div>
+          <div class="card">
+            <div class="details">
+              <p>Cart</p>
+              <p>10</p>
+            </div>
+            <div class="logo">🛒</div>
+          </div>
+          <div class="card">
+            <div class="details">
+              <p>Product</p>
+              <p>10</p>
+            </div>
+            <div class="logo">👜</div>
+          </div>
+
+          <div class="card">
+            <div class="details">
+              <p>Variant</p>
+              <p>10</p>
+            </div>
+            <div class="logo">🛍️</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
