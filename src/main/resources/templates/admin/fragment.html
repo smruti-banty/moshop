@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="defaultHead">
+    <meta charset="UTF-8"/>
+    <title>Admin panel</title>
+    <link rel="stylesheet" href="/css/base.css"/>
+    <link rel="stylesheet" href="/css/admin-template.css"/>
+    <script src="/js/admin-template.js" defer></script>
+</head>
+<body>
+<header th:fragment="header">
+    <h2>Dashboard</h2>
+</header>
+
+<aside th:fragment="sidebar">
+    <div class="menu-container">
+        <div class="top-menu">
+            <div class="menu"><a href="home">📈 Dashboard</a></div>
+            <div class="menu"><a href="#">💼 Product</a></div>
+            <div class="menu"><a href="#">🛍️ Variant</a></div>
+            <div class="menu"><a href="#">🪙 Stock</a></div>
+        </div>
+        <div class="bottom-menu">
+            <div class="menu"><a href="#">⬅️ Logout</a></div>
+        </div>
+    </div>
+</aside>
+</body>
+</html>
+
+
+

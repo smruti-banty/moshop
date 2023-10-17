@@ -1,0 +1,7 @@
+server:
+  port: 1205
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/moshop
+    username: postgres
+    password: smruti
