@@ -28,36 +28,20 @@
                   <th>Action</th>
                   <th>Type Name</th>
                   <th>Type id</th>
-                  <th>Created Date</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <a href="#">🖋️</a>
-                    <a href="#">🗑️</a>
-                  </td>
-                  <td>New Arrival</td>
-                  <td>121</td>
-                  <td>10 may 2023</td>
+                <tr th:if="${types.empty}">
+                  <td colspan="3">Please add a Type</td>
                 </tr>
-                <tr>
+                
+                <tr th:each="type : ${types}">
                   <td>
                     <a href="#">🖋️</a>
                     <a href="#">🗑️</a>
                   </td>
-                  <td>New Arrival</td>
-                  <td>121</td>
-                  <td>10 may 2023</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="#">🖋️</a>
-                    <a href="#">🗑️</a>
-                  </td>
-                  <td>New Arrival</td>
-                  <td>121</td>
-                  <td>10 may 2023</td>
+                  <td th:text="${type.typeName}"></td>
+                  <td th:text="${type.typeId}"></td>
                 </tr>
               </tbody>
             </table>

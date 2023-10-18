@@ -11,33 +11,28 @@
         <div class="main-content">
           <h2>Add Product</h2>
           <div class="form-container">
-            <form action="#" method="post">
+            <form action="/admin/product/add" method="post">
               <div class="form-group">
                 <label>Product Name</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" name="productName" />
               </div>
               <div class="form-group">
                 <label>Product Type</label>
-                <input
-                  type="email"
-                  multiple
-                  name="type"
-                  id="type"
-                  list="dwarf-type"
-                  class="form-control"
-                  placeholder="use comma for multi selection"
-                />
-
-                <datalist id="dwarf-type">
-                  <option value="123412345">New Arrival</option>
-                  <option value="123412345">Recommended for you</option>
-                  <option value="123412345">Winter sales</option>
-                  <option value="123412345">Best in segment</option>
-                </datalist>
+                <div class="form-control multiselect-input" role="button">
+                  Select type...
+                </div>
+                <div class="multiselect-container d-none">
+                  <div class="multiselect-box">
+                    <div class="multiselect-item" th:each="type : ${types}">
+                      <input type="checkbox" name="types" th:value="${type.typeId}" />
+                      <p th:text="${type.typeName}"></p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <label>Brand</label>
-                <input type="text" class="form-control" />
+                <input type="text" class="form-control" name="productBrand" />
               </div>
               <div class="btn-group">
                 <input type="submit" />

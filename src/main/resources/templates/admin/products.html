@@ -32,32 +32,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr th:each="product : ${products}">
                   <td>
                     <a href="#">🖋️</a>
                     <a href="#">🗑️</a>
                   </td>
-                  <td>Iphone 12</td>
-                  <td>Phone</td>
-                  <td>Apple</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="#">🖋️</a>
-                    <a href="#">🗑️</a>
-                  </td>
-                  <td>Iphone 13</td>
-                  <td>Phone</td>
-                  <td>Apple</td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="#">🖋️</a>
-                    <a href="#">🗑️</a>
-                  </td>
-                  <td>Iphone 13</td>
-                  <td>Phone</td>
-                  <td>Apple</td>
+                  <td th:text="${product.productName}"></td>
+                  <td
+                    th:text="${product.types.empty ? 'No type' : #strings.listJoin(product.types, ', ')  }"
+                  ></td>
+                  <td th:text="${product.productBrand}"></td>
                 </tr>
               </tbody>
             </table>

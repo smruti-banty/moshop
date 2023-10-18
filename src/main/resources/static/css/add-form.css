@@ -3,6 +3,7 @@
 }
 
 .main-content .form-container .form-group {
+  position: relative;
   margin-bottom: var(--primary-space);
 }
 .main-content .form-container label {
@@ -18,7 +19,6 @@
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .main-content .form-container .form-control:focus {
   border-color: #020202;
@@ -56,4 +56,35 @@
 
 .textarea-resize {
   resize: none;
+}
+
+.multiselect-input {
+  user-select: none;
+}
+
+.multiselect-container {
+  position: absolute;
+  z-index: 2;
+  background-color: #f4f4f4;
+  padding: 0.5rem var(--primary-space);
+  height: 100px;
+  overflow: auto;
+  box-shadow: var(--primary-shadow);
+  border-radius: 5px;
+}
+
+.multiselect-container::-webkit-scrollbar {
+  width: 0;
+}
+
+.multiselect-container .multiselect-item {
+  display: flex;
+  gap: 2rem;
+  padding: 0.5rem;
+}
+.multiselect-container .multiselect-item:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+.multiselect-container .multiselect-item > * {
+  font-size: 1.2rem;
 }

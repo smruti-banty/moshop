@@ -5,3 +5,7 @@ spring:
     url: jdbc:postgresql://localhost/moshop
     username: postgres
     password: smruti
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
