@@ -52,3 +52,7 @@
   text-decoration: none;
   background-color: #020202;
 }
+
+textarea {
+  resize: none;
+}

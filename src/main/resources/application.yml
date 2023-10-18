@@ -4,4 +4,4 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost/moshop
     username: postgres
-    password: smruti
+    password: postgres
