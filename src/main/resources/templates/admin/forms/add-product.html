@@ -23,6 +23,7 @@
                 </div>
                 <div class="multiselect-container d-none">
                   <div class="multiselect-box">
+                    <div class="multiselect-item" th:if="${types.empty}">No item found</div>
                     <div class="multiselect-item" th:each="type : ${types}">
                       <input type="checkbox" name="types" th:value="${type.typeId}" />
                       <p th:text="${type.typeName}"></p>
