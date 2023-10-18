@@ -53,6 +53,6 @@
   background-color: #020202;
 }
 
-textarea {
+.textarea-resize {
   resize: none;
 }
