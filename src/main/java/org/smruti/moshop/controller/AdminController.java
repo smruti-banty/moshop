@@ -19,7 +19,7 @@ public class AdminController {
 
     @GetMapping("/product/add")
     public String addProduct() {
-        return "admin/add-product";
+        return "admin/forms/add-product";
     }
 
     @GetMapping("/variant")
@@ -29,7 +29,7 @@ public class AdminController {
 
     @GetMapping("/variant/add")
     public String addVariant() {
-        return "admin/add-variant";
+        return "admin/forms/add-variant";
     }
 
     @GetMapping("/stock")
@@ -39,6 +39,16 @@ public class AdminController {
 
     @GetMapping("/stock/add")
     public String addStock() {
-        return "admin/add-stock";
+        return "admin/forms/add-stock";
+    }
+
+    @GetMapping("/type")
+    public String getType() {
+        return "admin/types";
+    }
+
+    @GetMapping("/type/add")
+    public String addtype() {
+        return "admin/forms/add-type";
     }
 }
