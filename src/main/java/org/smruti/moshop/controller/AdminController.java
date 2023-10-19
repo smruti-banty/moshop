@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.smruti.moshop.dto.ProductDto;
 import org.smruti.moshop.dto.TypeRequestDto;
+import org.smruti.moshop.dto.PageDto;
 import org.smruti.moshop.model.Product;
 import org.smruti.moshop.model.Type;
 import org.smruti.moshop.service.ProductService;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +27,6 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/admin")
 @RequiredArgsConstructor
 public class AdminController {
-    private final ProductService productService;
     private final StockService stockService;
     private final VariantService variantService;
     private final TypeService typeService;
@@ -35,30 +36,7 @@ public class AdminController {
         return "admin/dashboard";
     }
 
-    @GetMapping("/product")
-    public String getProducts(Model model) {
-        var products = productService.getProductsAsDto();
-        model.addAttribute("products", products);
-        return "admin/products";
-    }
-
-    @GetMapping("/product/add")
-    public String addProductPage(Model model) {
-        var types = typeService.getTypes();
-        model.addAttribute("types", types);
-        return "admin/forms/add-product";
-    }
-
-    @PostMapping("/product/add")
-    public String addProduct(@ModelAttribute ProductDto dto) {
-        var product = new Product();
-        BeanUtils.copyProperties(dto, product);
-        var types = typeService.getTypesById(dto.types());
-        productService.createOrUpdate(product, types);
-
-        return "redirect:/admin/product";
-    }
-
+    
     @GetMapping("/variant")
     public String getVariant() {
         return "admin/variants";
@@ -98,4 +76,5 @@ public class AdminController {
         typeService.createOrUpdate(type);
         return "redirect:/admin/type";
     }
+
 }

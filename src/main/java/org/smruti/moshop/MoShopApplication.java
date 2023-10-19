@@ -9,5 +9,4 @@ public class MoShopApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MoShopApplication.class, args);
 	}
-
 }

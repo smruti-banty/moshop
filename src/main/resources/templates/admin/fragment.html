@@ -1,36 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="defaultHead">
-    <meta charset="UTF-8"/>
+  <head th:fragment="defaultHead">
+    <meta charset="UTF-8" />
     <title>Admin panel</title>
-    <link rel="stylesheet" href="/css/base.css"/>
-    <link rel="stylesheet" href="/css/admin-template.css"/>
-    <link rel="stylesheet" href="/css/utility.css"/>
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/admin-template.css" />
+    <link rel="stylesheet" href="/css/utility.css" />
     <script src="/js/admin-template.js" defer></script>
     <script src="/js/table.js" defer></script>
     <script src="/js/form.js" defer></script>
-</head>
-<body>
-<header th:fragment="header">
-    <h2>Dashboard</h2>
-</header>
+  </head>
+  <body>
+    <header th:fragment="header">
+      <h2>Dashboard</h2>
+    </header>
 
-<aside th:fragment="sidebar">
-    <div class="menu-container">
+    <aside th:fragment="sidebar">
+      <div class="menu-container">
         <div class="top-menu">
-            <div class="menu"><a href="/admin/home">📈 Dashboard</a></div>
-            <div class="menu"><a href="/admin/product">💼 Product</a></div>
-            <div class="menu"><a href="/admin/variant">🛍️ Variant</a></div>
-            <div class="menu"><a href="/admin/stock">🪙 Stock</a></div>
-            <div class="menu"><a href="/admin/type">🗃️ Type</a></div>
+          <div class="menu"><a href="/admin/home">📈 Dashboard</a></div>
+          <div class="menu"><a href="/admin/product">💼 Product</a></div>
+          <div class="menu"><a href="/admin/variant">🛍️ Variant</a></div>
+          <div class="menu"><a href="/admin/stock">🪙 Stock</a></div>
+          <div class="menu"><a href="/admin/type">🗃️ Type</a></div>
         </div>
         <div class="bottom-menu">
-            <div class="menu"><a href="#">⬅️ Logout</a></div>
+          <div class="menu"><a href="#">⬅️ Logout</a></div>
         </div>
+      </div>
+    </aside>
+
+    <div class="pagination" th:fragment="pagination(title)">
+      <div class="page-size">
+        <div>
+          <p>Row per page</p>
+          <select
+            name="size"
+            id="page-size"
+            th:field="${page.pageSize}"
+            th:attr="data-path=${title}"
+          >
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <p th:text="|Total ${page.rows} rows|"></p>
+      </div>
+      <div class="page-naviagte">
+        <a
+          th:href="|/admin/${title}/page?pageSize=${page.pageSize}&pageNumber=${page.pageNumber > 1 ? page.pageNumber - 1 : 1}|"
+          >◀ Previous</a
+        >
+        <p th:utext="|<span>${page.pageNumber}</span> of ${page.pages}|"></p>
+        <a
+          th:href="|/admin/${title}/page?pageSize=${page.pageSize}&pageNumber=${page.pageNumber < page.pages ? page.pageNumber + 1 : page.pages}|"
+          >Next ▶</a
+        >
+      </div>
     </div>
-</aside>
-</body>
+  </body>
 </html>
-
-
-

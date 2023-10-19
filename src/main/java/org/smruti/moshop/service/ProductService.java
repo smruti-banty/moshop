@@ -7,6 +7,8 @@ import org.smruti.moshop.dto.ProductDto;
 import org.smruti.moshop.model.Product;
 import org.smruti.moshop.model.Type;
 import org.smruti.moshop.repository.ProductRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -27,8 +29,8 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public List<ProductDto> getProductsAsDto() {
-        var products = productRepository.findAll();
+    public List<ProductDto> getProductsAsDto(int pageNumber, int pageSize) {
+        var products = productRepository.findAll(PageRequest.of(pageNumber - 1, pageSize));
 
         List<ProductDto> dto = new ArrayList<>();
         products.forEach(product -> {
@@ -51,5 +53,9 @@ public class ProductService {
 
     public List<Product> getProducts() {
         return productRepository.findAll();
+    }
+
+    public long countAll() {
+        return productRepository.count();
     }
 }
