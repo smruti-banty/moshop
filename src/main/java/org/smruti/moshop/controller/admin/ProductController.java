@@ -85,6 +85,6 @@ public class ProductController {
     private long getTotalPage(long totalRows, long pageSize) {
         var totalPage = totalRows % pageSize;
         var result = totalRows / pageSize;
-        return totalPage == 0 ? result : result + 1;
+        return totalRows == 0 || totalPage != 0 ? result + 1 : result;
     }
 }
