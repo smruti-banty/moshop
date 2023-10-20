@@ -51,6 +51,29 @@ public class ProductService {
         return dto;
     }
 
+    public List<ProductDto> getProductsByNameAsDto(int pageNumber, int pageSize, String search) {
+        var products = productRepository.findAllByProductNameContainingIgnoreCase(search,
+                PageRequest.of(pageNumber - 1, pageSize));
+
+        List<ProductDto> dto = new ArrayList<>();
+        products.forEach(product -> {
+            var productId = product.getProductId();
+            var productName = product.getProductName();
+            var productBrand = product.getProductBrand();
+            var types = product.getProductType();
+
+            List<String> typeNames = new ArrayList<String>();
+            if (types != null) {
+                typeNames = types.stream().map(type -> type.getTypeName()).toList();
+            }
+
+            var productDto = new ProductDto(productId, productName, productBrand, typeNames);
+            dto.add(productDto);
+        });
+
+        return dto;
+    }
+
     public List<Product> getProducts() {
         return productRepository.findAll();
     }
@@ -58,4 +81,9 @@ public class ProductService {
     public long countAll() {
         return productRepository.count();
     }
+
+    public long countByName(String search) {
+        return productRepository.countByProductNameContainingIgnoreCase(search);
+    }
+
 }

@@ -50,12 +50,12 @@
       </div>
       <div class="page-naviagte">
         <a
-          th:href="|/admin/${title}/page?pageSize=${page.pageSize}&pageNumber=${page.pageNumber > 1 ? page.pageNumber - 1 : 1}|"
+          th:href="|/admin/${title}?pageSize=${page.pageSize}&pageNumber=${page.pageNumber > 1 ? page.pageNumber - 1 : 1}${search ? '&search=' + searchItem : ''}|"
           >◀ Previous</a
         >
         <p th:utext="|<span>${page.pageNumber}</span> of ${page.pages}|"></p>
         <a
-          th:href="|/admin/${title}/page?pageSize=${page.pageSize}&pageNumber=${page.pageNumber < page.pages ? page.pageNumber + 1 : page.pages}|"
+          th:href="|/admin/${title}?pageSize=${page.pageSize}&pageNumber=${page.pageNumber < page.pages ? page.pageNumber + 1 : page.pages}${search ? '&search=' + searchItem : ''}|"
           >Next ▶</a
         >
       </div>

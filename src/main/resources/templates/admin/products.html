@@ -12,8 +12,8 @@
           <h2>All Products</h2>
           <div class="table-header">
             <div class="form-container">
-              <form>
-                <input type="text" placeholder="Search product..." />
+              <form action="/admin/product/search" method="post">
+                <input type="text" placeholder="Search product..." name="search" th:value="${searchItem}"/>
                 <input type="submit" value="🔍" />
               </form>
             </div>

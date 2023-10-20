@@ -51,7 +51,16 @@ if (pageSizeSelect) {
     const value = e.target.value;
     const path = e.target.dataset.path;
 
-    location.href = `/admin/${path}/size?pageSize=${value}`;
+    location.href = `/admin/${path}?pageSize=${value}`;
+  });
+}
+
+const firstInput = document.querySelector("input");
+if (firstInput) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const inputValue = firstInput.value;
+    firstInput.focus();
+    firstInput.setSelectionRange(inputValue.length, inputValue.length);
   });
 }
 

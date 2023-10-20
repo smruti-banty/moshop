@@ -1,5 +1,8 @@
 package org.smruti.moshop.controller.admin;
 
+import java.util.List;
+
+import java.util.Base64;
 import org.smruti.moshop.dto.PageDto;
 import org.smruti.moshop.dto.ProductDto;
 import org.smruti.moshop.model.Product;
@@ -24,23 +27,22 @@ public class ProductController {
     private final TypeService typeService;
 
     @GetMapping
-    public String getProducts(Model model) {
-        return getProduct(1, 5, model);
+    public String getProducts(@RequestParam(required = false, defaultValue = "0") int pageNumber,
+            @RequestParam(required = false, defaultValue = "0") int pageSize,
+            @RequestParam(required = false, defaultValue = "") String search, Model model) {
+        pageNumber = pageNumber == 0 ? 1 : pageNumber;
+        pageSize = pageSize == 0 ? 5 : pageSize;
+
+        model.addAttribute("searchItem", search);
+
+        model.addAttribute("search", !search.isBlank());
+        return getProduct(pageNumber, pageSize, search, model);
     }
 
-    @GetMapping("/size")
-    public String getProductBySize(@RequestParam int pageSize, Model model) {
-        return getProduct(1, pageSize, model);
-    }
-
-    @GetMapping("/page")
-    public String getProductByPage(@RequestParam int pageNumber, @RequestParam int pageSize, Model model) {
-        return getProduct(pageNumber, pageSize, model);
-    }
-
-    @GetMapping("/search")
-    public String getProductSearch() {
-        return "admin/products";
+    @PostMapping("/search")
+    public String getProductSearch(@RequestParam String search, Model model) {
+        search = search.isBlank() ? "" : search;
+        return "redirect:/admin/product?search=" + search;
     }
 
     @GetMapping("/add")
@@ -60,15 +62,29 @@ public class ProductController {
         return "redirect:/admin/product";
     }
 
-    private String getProduct(int pageNumber, int pageSize, Model model) {
-        var products = productService.getProductsAsDto(pageNumber, pageSize);
+    private String getProduct(int pageNumber, int pageSize, String search, Model model) {
+        List<ProductDto> products = null;
+        long totalRows = 0;
+
+        if (search.isBlank()) {
+            products = productService.getProductsAsDto(pageNumber, pageSize);
+            totalRows = productService.countAll();
+        } else {
+            products = productService.getProductsByNameAsDto(pageNumber, pageSize, search);
+            totalRows = productService.countByName(search);
+        }
+
         model.addAttribute("products", products);
 
-        var totalRows = productService.countAll();
-        var totalPage = Math.round(Math.ceil(totalRows / pageSize) + 1);
-
+        var totalPage = getTotalPage(totalRows, pageSize);
         var page = new PageDto(pageSize, pageNumber, totalRows, totalPage);
         model.addAttribute("page", page);
         return "admin/products";
+    }
+
+    private long getTotalPage(long totalRows, long pageSize) {
+        var totalPage = totalRows % pageSize;
+        var result = totalRows / pageSize;
+        return totalPage == 0 ? result : result + 1;
     }
 }
